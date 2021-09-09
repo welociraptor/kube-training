@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres
+data:
+  init.sql: |
+    CREATE ROLE greetings WITH LOGIN PASSWORD 'hello!';
+    CREATE DATABASE greetings WITH OWNER greetings;
