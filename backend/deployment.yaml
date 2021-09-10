@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: backend
+  name: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - image: backend
+        name: backend
+        imagePullPolicy: Never
+        env:
+          - name: DATABASE_URL
+            value: "postgres://greetings:hello!@postgres.default.svc.cluster.local/greetings"
+              
+
